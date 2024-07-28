@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React, { useState } from 'react';
+import Nav from '../_components/nav';
 
 export default function Login(){
 
@@ -16,19 +17,7 @@ export default function Login(){
 
   return (
     <main className="bg-slate-950 min-h-screen p-4 text-white">
-      <nav className="p-4 bg-slate-800 text-white">
-        <ul className="flex space-x-4">
-          <li>
-            <Link href="/" className="hover:underline">Home</Link>
-          </li>
-          <li>
-            <Link href="/cart" className="hover:underline">Cart</Link>
-          </li>
-          <li>
-            <Link href="/login" className="hover:underline">Login</Link>
-          </li>
-        </ul>
-      </nav>
+      <Nav />
       <h1 className="text-3xl font-bold mb-4">Login</h1>
       <form onSubmit={handleLogin} className="bg-slate-800 p-4 rounded">
         <div className="mb-4">
