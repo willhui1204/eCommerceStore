@@ -1,11 +1,67 @@
+"use client"
+
+import Link from "next/link";
+import { useState } from "react";
 
 
-export default function Cart(){
+const initialCartItems = [
+  { id: 1, name: 'Smartphone', price: 699, quantity: 1 },
+  { id: 2, name: 'Laptop', price: 999, quantity: 1 },
+];
 
-    return (
-        <main className="bg-slate-950 min-h-screen p-4 text-white">
-          <h1 className="text-3xl font-bold mb-4">Your Cart</h1>
-          <p>Cart items will be displayed here.</p>
-        </main>
-    );    
+export default function CartPage() {
+  const [cartItems, setCartItems] = useState(initialCartItems);
+
+  const handleQuantityChange = (id, quantity) => {
+    setCartItems(cartItems.map(item => 
+      item.id === id ? { ...item, quantity: Number(quantity) } : item
+    ));
+  };
+
+  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  return (
+    <main className="bg-slate-950 min-h-screen p-4 text-white">
+      <nav className="p-4 bg-slate-800 text-white">
+        <ul className="flex space-x-4">
+          <li>
+            <Link href="/" className="hover:underline">Home</Link>
+          </li>
+          <li>
+            <Link href="/cart" className="hover:underline">Cart</Link>
+          </li>
+          <li>
+            <Link href="/login" className="hover:underline">Login</Link>
+          </li>
+        </ul>
+      </nav>
+      <h1 className="text-3xl font-bold mb-4">Your Cart</h1>
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <div>
+          {cartItems.map(item => (
+            <div key={item.id} className="p-4 m-4 bg-slate-700 rounded">
+              <h2 className="font-bold text-xl">{item.name}</h2>
+              <p>Price: ${item.price}</p>
+              <label className="block mb-2">
+                Quantity:
+                <input 
+                  type="number" 
+                  value={item.quantity} 
+                  min="1"
+                  onChange={(event) => handleQuantityChange(item.id, event.target.value)}
+                  className="w-16 ml-2 p-1 rounded text-black"
+                />
+              </label>
+              <p>Total: ${item.price * item.quantity}</p>
+            </div>
+          ))}
+          <div className="text-xl font-bold mt-4">
+            Cart Total: ${total}
+          </div>
+        </div>
+      )}
+    </main>
+  );
 }

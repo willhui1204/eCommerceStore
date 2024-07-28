@@ -29,7 +29,7 @@ export default function Home() {
       </nav>
       <div className="p-4">
         <h1 className="text-3xl font-bold m-2 text-white">E-commerce Store</h1>
-        <SearchBar className="w-96" onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} />
         <ProductList searchQuery={searchQuery} />
       </div>
     </main>
