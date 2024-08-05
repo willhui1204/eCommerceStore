@@ -11,7 +11,7 @@ const getCartItems = async (userId) => {
   });
   return items;
 };
-
+  
 const addCartItem = async (userId, item) => {
   const productRef = doc(db, "users", userId, "carts", item.id.toString());
   const productSnap = await getDoc(productRef);

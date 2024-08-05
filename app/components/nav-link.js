@@ -27,7 +27,7 @@ export default function NavLink() {
         <li>
           <Link
             className={clsx("bg-slate-500 text-center rounded-full p-2 m-2", {
-              "bg-blue-300": pathname === "/",
+              "bg-blue-300": pathname === "/user/cart",
             })}
             href="/user/cart"
           >
