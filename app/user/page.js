@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { clsx } from "clsx";
+import { useEffect, useState } from "react";
 import ItemCard from "./item-card";
-import { useUserAuth } from "./_utils/auth-context";
 
 export default function Page() {
   const [selectedCategory, setSelectedCategory] = useState("");

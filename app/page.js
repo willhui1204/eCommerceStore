@@ -10,7 +10,6 @@ export default function Page() {
   const router = useRouter();
 
   const handleGitHubSignIn = () => {
-    // 确保弹窗是由用户点击触发的
     gitHubSignIn()
       .then(() => {
         router.push("/user");
