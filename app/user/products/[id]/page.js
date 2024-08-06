@@ -33,7 +33,7 @@ export default function ProductPage(){
   }
 
   return (
-    <div className="container mx-auto p-4 bg-secondary-content">
+    <div className="mx-auto p-4 bg-primary-content">
       <h1 className="text-2xl font-bold mb-4">{product.title}</h1>
       <img 
         src={product.image} 

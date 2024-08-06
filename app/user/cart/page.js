@@ -66,8 +66,8 @@ export default function Page() {
   }, [user]);
 
   return (
-    <div>
-      <h1 className="m-2">Shopping Cart</h1>
+    <div className="mx-auto p-4 bg-primary-content">
+      <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
       <ul className="space-y-4">
         {cartItems.map((item) => (
           <li className="border  " key={item.id}>
