@@ -13,5 +13,11 @@ export default function Page() {
     );
   }
 
-  return (<h1>Welcome to profile, {user.uid}, {user.email}</h1>);
+  return (
+    <div className="mx-auto p-4 bg-primary-content">
+      <h1 className="text-2xl font-bold mb-4">User Profile</h1>
+      <h2>User Email Address: {user.email}</h2>
+      <h2>User ID: {user.uid}</h2>
+    </div>
+  );
 }
